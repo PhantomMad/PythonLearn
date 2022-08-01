@@ -5,7 +5,7 @@ RUN  DEBIAN_FRONTEND=noninteractive apt-get install -yq \
     python-pip \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /opt
-COPY requirements.txt webapp/
+COPY requirements.txt webapps/
 COPY app.py webapps/
 RUN  pip install -qr webapps/requirements.txt
 EXPOSE 5000
