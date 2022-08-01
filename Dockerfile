@@ -9,4 +9,4 @@ COPY requirements.txt webapps/
 COPY app.py webapps/
 RUN  pip install -qr webapps/requirements.txt
 EXPOSE 5000
-CMD ["python", "app.py"]
+CMD ["python", "webapps/app.py"]
