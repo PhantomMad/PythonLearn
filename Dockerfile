@@ -1,9 +1,12 @@
 FROM ubuntu:18.04
-RUN apt-get update \
- && apt-get install -yq \
+RUN apt-get update
+RUN  DEBIAN_FRONTEND=noninteractive apt-get install -yq \
     python-all \
     python-pip
  && rm -rf /var/lib/apt/lists/*
- WORKDIR /opt
- COPY requirements.txt webapp/
- COPY app.py webapps/
+WORKDIR /opt
+COPY requirements.txt webapp/
+COPY app.py webapps/
+RUN  pip install -qr webapps/requirements.txt
+EXPOSE 5000
+CMD ["python", "app.py"]
